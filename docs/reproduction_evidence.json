@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "scope": "Frozen H0/H3 numerical smoke evidence; not a full benchmark reproduction",
+  "algorithm_source_sha256": {
+    "src/future_gain/calibration/features.py": "0dc428794ab5fb47c95dfb04788d0072f1570cd2ffc5c01781e91882740c33f6",
+    "src/future_gain/calibration/ridge.py": "ed364f3c37c20f5aee562e7a39d85e3037b7b2d55765c50abd007edc270caa00",
+    "src/future_gain/sampling/budget.py": "8dbda25043f882e52462446b9421b78c53218f9fbc8c97957a6fdea41b5755c5",
+    "src/future_gain/sampling/noise.py": "bc8ea1c05db7ebb7ef53d3fe07202d71ee931f986a75601facbce9b284c9d5c8",
+    "src/future_gain/sampling/online.py": "22f152f68ab6e24935ef4958ed1633d872da691d0d02f3627b06ada6aeab2411",
+    "src/future_gain/adapters/far.py": "56be06c9aa95d1a99af53aec9df3b6fbbe76d907bf64e7c8ddf9ca1c95be37ac"
+  },
+  "policy_sha256": "73f7a79478ff4bb980b69d8ca4ee994716d1bd29b129e78b89386a878dbbdb56",
+  "bounded_relocation": {
+    "date": "2026-11-13",
+    "contexts": 1,
+    "seed": 303,
+    "policies": [
+      "current_gain",
+      "future_gain"
+    ],
+    "rollouts": 4,
+    "generator_calls": 1344,
+    "checks": [
+      "Exact latent and RGB equality with original frozen runs",
+      "Exact traces and matched per-frame noise identities",
+      "Identical observed prefix with replaced future observations"
+    ],
+    "result": "passed",
+    "original_review_sha256": "6bde956ab9d2aa7b0e35f15fb673c87b23c563042c2d9eed0fda8d3b91c10e6d"
+  },
+  "rebuilt_environment": {
+    "date": "2026-11-13",
+    "scope": "New virtual environment on existing infrastructure, one context and seed, H0 and H3",
+    "result": "passed exact latent/RGB/noise/trace comparison",
+    "original_review_sha256": "121c382ace180bf9a9ac2c4da3a0269e4cdeb87b057c4e867eebf2e19d554b1e"
+  },
+  "release_packaging": "Inference bookkeeping and documentation updated; no new GPU run for this source release",
+  "auxiliary_fp32_adapter": "Only machine hostname requirement generalized; V100, dtype and asset checks preserved; modified constructor not newly GPU-validated"
+}

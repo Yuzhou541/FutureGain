@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "project": "future_gain",
+  "timezone": "Asia/Shanghai",
+  "runtime": {
+    "device": "cuda:0",
+    "batch_size": 1,
+    "precision": "bf16",
+    "allow_backbone_training": false,
+    "use_paid_services": false,
+    "mvp_gpu_hours_soft_cap": 24,
+    "mvp_wall_hours_target": 72,
+    "hard_gpu_hours_limit": null
+  },
+  "upstream": {
+    "repo": "https://github.com/showlab/FAR",
+    "commit": "e59536ac30e5e3fa93db756fccfd422420a65ff6",
+    "source_dir": "third_party/FAR",
+    "model_repo": "guyuchao/FAR_Models",
+    "model_revision": "a8ac0dd5cba49a7897fcaf06107e8155fd72a703"
+  },
+  "remote": {
+    "project_dir": null,
+    "asset_dir": null,
+    "environment_dir": null,
+    "partition": null
+  },
+  "task": {
+    "dataset": "bair",
+    "context_frames": 2,
+    "prediction_frames": 28,
+    "image_resolution": [
+      64,
+      64
+    ],
+    "latent_resolution": [
+      8,
+      8
+    ],
+    "guidance_scale": 1.0,
+    "condition_on_actions": false
+  },
+  "sampler": {
+    "type": "official_flow_euler",
+    "low_nfe_candidate": 8,
+    "high_nfe_candidate": 16,
+    "reference_nfe": 50,
+    "require_first_eval_reuse_equivalence": true,
+    "per_frame_noise": true
+  },
+  "method": {
+    "reference_mode": "global_dense",
+    "label_metric": "canonical_lpips_alex",
+    "label_normalization": "fixed_prediction_horizon",
+    "lookahead_future_frames": 3,
+    "continuation_policy": "fixed_low",
+    "prefix_policy_mixture": [
+      "fixed_low",
+      "random_exact_budget"
+    ],
+    "random_prefix_high_fraction": 0.5,
+    "router_shared_across_budgets": true,
+    "high_fractions": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "quota_mode": "exact",
+    "tie_rule": "calibrated_randomized"
+  },
+  "data": {
+    "split_group": "original_video_id",
+    "calibration_train_contexts": 64,
+    "calibration_val_contexts": 32,
+    "pilot_holdout_contexts": 64,
+    "development_source": "official_training",
+    "official_test_locked": true,
+    "deterministic_preprocessing": true,
+    "calibration_seeds": [
+      101,
+      202
+    ],
+    "pilot_seeds": [
+      303,
+      404,
+      505
+    ],
+    "intervention_positions_per_rollout": 2,
+    "dataset_revision": null,
+    "bair_train_manifest": null,
+    "bair_val_manifest": null
+  },
+  "router": {
+    "type": "ridge",
+    "feature_version": "history_first_eval_v1",
+    "standardization_fit_split": "calibration_train",
+    "alpha_candidates": [
+      0.01,
+      0.1,
+      1.0,
+      10.0,
+      100.0
+    ],
+    "threshold_distribution_split": "calibration_val",
+    "controller_seed": 9001
+  },
+  "evaluation": {
+    "primary_mode": "canonical",
+    "retain_upstream_legacy_mode": true,
+    "primary_budget_fraction": 0.5,
+    "primary_comparator": "near_uniform_exact_budget",
+    "bootstrap_cluster": "original_video_id",
+    "bootstrap_repeats": 2000,
+    "latency_batch_size": 1,
+    "metrics_from_lossless_outputs": true
+  }
+}

@@ -1,0 +1,6 @@
+# Optional auxiliary MCVD environment; not needed for frozen FAR inference.
+# Install PyTorch 2.5.0 + CUDA 12.4 separately before these packages.
+numpy==1.26.4
+scipy==1.14.1
+PyYAML==6.0.2
+av==13.1.0

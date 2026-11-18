@@ -1,0 +1,67 @@
+{
+  "status": "private_source_candidate",
+  "files": {
+    "src/future_gain/__init__.py": {
+      "original_sha256": "88b14215a6c83df8442eddf92e5b8c00fc849a7b542f18836f3e1d687ddc4410",
+      "candidate_sha256": "88b14215a6c83df8442eddf92e5b8c00fc849a7b542f18836f3e1d687ddc4410",
+      "change": null
+    },
+    "src/future_gain/audit.py": {
+      "original_sha256": "9a41611ab0812ae334699358260eea0fb2a3b1c7c5cba3a3181c6afcf14c8a6b",
+      "candidate_sha256": "9a41611ab0812ae334699358260eea0fb2a3b1c7c5cba3a3181c6afcf14c8a6b",
+      "change": null
+    },
+    "src/future_gain/runtime.py": {
+      "original_sha256": "280aa8ca950decb66763536f4a25a526572ec8208fb26cf64627d38924f4e211",
+      "candidate_sha256": "01c2eca8418d48ad3beeb87e2643f0b63066c49e1e4224f0c4ba18cf183411b0",
+      "change": {
+        "kind": "one_error_string_only",
+        "before_literal_sha256": "509508d4aa8c4d0ca8c78e85fe0387e59f88b50ebd742079929f9d9c01fdfccf",
+        "after": "Model/data work is allowed only on allocated Slurm compute nodes.",
+        "normalized_ast_sha256": "ba450e98a8d4afeb4544f8d82699a66cc6dbf3e3c9f9a76f5989e917565e8107",
+        "normalization": "exact error literal -> <RUNTIME_LOCATION_MESSAGE>; AST fields excluding source positions and empty type_params"
+      }
+    },
+    "src/future_gain/adapters/far.py": {
+      "original_sha256": "56be06c9aa95d1a99af53aec9df3b6fbbe76d907bf64e7c8ddf9ca1c95be37ac",
+      "candidate_sha256": "56be06c9aa95d1a99af53aec9df3b6fbbe76d907bf64e7c8ddf9ca1c95be37ac",
+      "change": null
+    },
+    "src/future_gain/sampling/__init__.py": {
+      "original_sha256": "fe6598915fc2de84a5eafef6c8165d54eef69cd23d5a4ff181398b3b0d077ee7",
+      "candidate_sha256": "fe6598915fc2de84a5eafef6c8165d54eef69cd23d5a4ff181398b3b0d077ee7",
+      "change": null
+    },
+    "src/future_gain/sampling/noise.py": {
+      "original_sha256": "bc8ea1c05db7ebb7ef53d3fe07202d71ee931f986a75601facbce9b284c9d5c8",
+      "candidate_sha256": "bc8ea1c05db7ebb7ef53d3fe07202d71ee931f986a75601facbce9b284c9d5c8",
+      "change": null
+    },
+    "src/future_gain/sampling/budget.py": {
+      "original_sha256": "8dbda25043f882e52462446b9421b78c53218f9fbc8c97957a6fdea41b5755c5",
+      "candidate_sha256": "8dbda25043f882e52462446b9421b78c53218f9fbc8c97957a6fdea41b5755c5",
+      "change": null
+    },
+    "src/future_gain/sampling/online.py": {
+      "original_sha256": "22f152f68ab6e24935ef4958ed1633d872da691d0d02f3627b06ada6aeab2411",
+      "candidate_sha256": "22f152f68ab6e24935ef4958ed1633d872da691d0d02f3627b06ada6aeab2411",
+      "change": null
+    },
+    "src/future_gain/calibration/__init__.py": {
+      "original_sha256": "15597c8621e149d454542d2185575970a156415ab01d09c14a745de9a80026a1",
+      "candidate_sha256": "15597c8621e149d454542d2185575970a156415ab01d09c14a745de9a80026a1",
+      "change": null
+    },
+    "src/future_gain/calibration/features.py": {
+      "original_sha256": "0dc428794ab5fb47c95dfb04788d0072f1570cd2ffc5c01781e91882740c33f6",
+      "candidate_sha256": "0dc428794ab5fb47c95dfb04788d0072f1570cd2ffc5c01781e91882740c33f6",
+      "change": null
+    },
+    "src/future_gain/calibration/ridge.py": {
+      "original_sha256": "ed364f3c37c20f5aee562e7a39d85e3037b7b2d55765c50abd007edc270caa00",
+      "candidate_sha256": "ed364f3c37c20f5aee562e7a39d85e3037b7b2d55765c50abd007edc270caa00",
+      "change": null
+    }
+  },
+  "runtime_guard_equivalence": "Original and candidate normalized AST hashes agree; only the declared error string is replaced; ownership/state/node checks unchanged. Exact old/new text is retained only in private internal review."
+}
