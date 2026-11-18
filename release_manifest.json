@@ -5,7 +5,7 @@
   "title": "FutureGain: Future-Aware Compute Allocation for Autoregressive Video Prediction",
   "scope": "Algorithm modules, frozen H0/H3 policies, inference, calibration and evaluation tools, tests and documentation",
   "files": {
-    ".gitignore": "f538054c18eacaccfa830b8dfdf4b97bddc80a6922d76c33e68f3d5fbbbb39a5",
+    ".gitignore": "a35bbc92fec8768d38bea42182b9ae00f564a27dd345fefa037755a65debf1f0",
     "README.md": "fea34e305039267a55b7c15e0948a53b78325e2b6943b4faf2a1b17920dd7b57",
     "THIRD_PARTY_NOTICE.md": "7248c63349d7260a4fdfdf1466c07d5808836c1c60df604f8f1a580a1b01e162",
     "configs/base.json": "3529f751e92620cfb05db76aaab7bf9d5e4dda39f0e0d727a4957192e67c058b",
